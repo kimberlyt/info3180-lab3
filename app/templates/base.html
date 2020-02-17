@@ -22,8 +22,19 @@
     </header>
     <main>
         <div class="container">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes >
+              {% for message in messages %}
+              <li style="list-style:none; text-align:center;"><h1 style="color:red;">{{ message}}</h1> </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
             {% block main %}{% endblock %}
         </div>
+        <br>
+        <br>
     </main>
     <footer>
         <div class="container">
